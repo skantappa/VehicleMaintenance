@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_FLET>
+@*@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_STND>*@
+@using GridMvc.Html
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <h4>FLEET RECORDS</h4>
+    
+    <div>
+        <table class="table-bordered">
+            <tr>
+                <td style="background-color:gold">
+                    <b>
+                        @Html.ActionLink("Create New", "AddFleet", "Home")
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table-bordered" border="1">
+                        <tr>
+                            <td>
+                                @Html.Grid(Model).Columns(columns =>
+                            {
+                               columns.Add()
+                                    .Encoded(false)
+                                    .Sanitized(false)
+                                    .SetWidth(30)
+                                    .RenderValueAs(d =>
+                                                        @<b>
+                                                            @Html.ActionLink("Edit", "EditFleet", "Home", new { id = d.FLEET_CODE }, null)
+                                                        </b>);
+                         columns.Add(c => c.FLEET_CODE).Titled("FLEET CODE").Filterable(true);
+                         columns.Add(c => c.BEG_BUS_NO).Titled("FIRST BUS NUMBER");
+                         columns.Add(c => c.END_BUS_NO).Titled("LAST BUS NUMBER");
+                         columns.Add(c => c.MANUFACTURER).Titled("MANUFACTURER").Filterable(true);
+                     }).WithPaging(8).Sortable(true).EmptyText("No Data Found")
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+

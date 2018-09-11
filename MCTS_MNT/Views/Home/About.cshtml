@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+@Html.TextBox("txtName", "Santosh Kantappa", new {@class="textbox", placeholder = "Enter Name" })
+
+@Html.BeginForm("About", "Home", HttpVerbs.Post)
+    {
+        
+    }
+
+</div>

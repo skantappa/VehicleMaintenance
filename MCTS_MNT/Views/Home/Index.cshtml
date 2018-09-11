@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>MCTS Portal</h2>
+    <h3>@ViewBag.MyData</h3>
+    <p class="lead">MCTS Portal is a free web framework for creating and managing Milwaukee Country Transit System Records.</p>
+    <p><a href="https://www.ridemcts.com" class="btn btn-primary btn-lg">Learn more about Ride MCTS &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>MCTS FLEET</h3>
+        <p>
+            Manage the Fleet Vehicles by using the link below:
+        </p>
+        <p>
+            @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a>*@
+            @Html.ActionLink("Fleet", "Fleet", "Home")
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h3>MCTS FUEL</h3>
+        <p>Manage the Fueling records Vehicles by using the link below:</p>
+        <p>
+            @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a>*@
+            @Html.ActionLink("Daily Fuel", "FDFU", "Fuel")
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h3>MCTS TimeKeeping and Payroll </h3>
+        <p>Payroll validates the time entered by a worker for completion of a job to the time entered in the payroll.</p>
+        <p>
+            @*<a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a>*@
+            @Html.ActionLink("Work", "TKPayroll", "Home")
+        </p>
+    </div>
+</div>

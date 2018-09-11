@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_BAKE>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "MNTBrakes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MNTBrakes</h2>
+
+<div>
+    <table class="table-bordered">
+        <tr>
+            <td style="background-color:gold">
+                <b>
+                    @Html.ActionLink("Create New", "AddBrakes", "Home")
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="table-bordered" border="1">
+                    <tr>
+                        <td>
+                            @Html.Grid(Model).Columns(columns =>
+                                     {
+                                        columns.Add()
+                                             .Encoded(false)
+                                             .Sanitized(false)
+                                             .SetWidth(30)
+                                             .RenderValueAs(d =>
+                                                                            @<b>
+                                                                                @Html.ActionLink("Edit", "EditBrakes", "Home", new { bkBusNo = d.BUS_NUMBER, bkDateBrkOff = d.DATE_BRAKE_OFF.ToString(), bkAxlePos = d.AXLE_POSITION }, null)
+                                                                            </b>);
+                                      columns.Add(c => c.BUS_NUMBER).Titled("BUS NUMBER").Filterable(true);
+                                      columns.Add(c => c.DATE_BRAKE_OFF).Titled("DATE BRAKE OFF");
+                                      columns.Add(c => c.AXLE_POSITION).Titled("AXLE POSITION").Filterable(true);
+                                      columns.Add(c => c.DATE_BRAKE_ON).Titled("DATE BRAKE ON").Filterable(true);
+                                      columns.Add(c => c.MILEAGE_BRAKE_ON).Titled("MILEAGE BRAKE ON");
+                                      columns.Add(c => c.MILEAGE_BRAKE_OFF).Titled("MILEAGE BRAKE OFF");
+                                      columns.Add(c => c.GARAGE).Titled("GARAGE");
+                                      columns.Add(c => c.BAKE_SIZE).Titled("BAKE SIZE");
+                                      columns.Add(c => c.BADGE_NUMBER_1).Titled("BADGE_NUMBER_1");
+                                      columns.Add(c => c.BADGE_NUMBER_2).Titled("BADGE_NUMBER_2");
+                                  }).WithPaging(50).Sortable(true).EmptyText("No Data Found").WithMultipleFilters()
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+     </table>
+</div>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fd3e33aaa5184fa4b5179aee25d4ade4" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="ModelMNT.MNT_AUTO" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_BAKE" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_BDIN" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_BRAK" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_CARD" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_COST" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_CTRL" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_FDFU" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_FLET" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_INSC" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_KKFU" Width="1.5" PointX="2.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_MHJC" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_MIMA" Width="1.5" PointX="6.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_PAYM" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_PMSC" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_PUIN" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_RCAH" Width="1.5" PointX="14.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_STND" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_TANK" Width="1.5" PointX="10.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_TBAD" Width="1.5" PointX="16.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_TOOL" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_VEHICLE" Width="1.5" PointX="2.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_WORK" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="ModelMNT.MNT_FK_STND_FLEET_CODE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_WHPE" Width="1.5" PointX="5.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_INSP" Width="1.5" PointX="17.375" PointY="18.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_WOEF" Width="1.5" PointX="19.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_STWB" Width="1.5" PointX="7.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_REVE" Width="1.5" PointX="13.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_RCMO" Width="1.5" PointX="9.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ModelMNT.MNT_RTRQ" Width="1.5" PointX="19.375" PointY="15.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

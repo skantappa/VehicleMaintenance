@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF331FFE-59D6-475B-908B-3E6946826D99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MCTS_MNT.EntityDataModel</RootNamespace>
+    <AssemblyName>MCTS_MNT.EntityDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="MNT_AUTO.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_BAKE.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_BDIN.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_BRAK.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_CARD.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_COST.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_CTRL.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_FDFU.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_FLET.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_INSC.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_INSP.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_KKFU.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_MHJC.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_MIMA.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_PAYM.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_PMSC.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_PUIN.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_RCAH.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_RCMO.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_REVE.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_RTRQ.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_STND.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_STWB.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_TANK.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_TBAD.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_TOOL.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_VEHICLE.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_WHPE.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_WOEF.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNT_WORK.cs">
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMNT.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMNT.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMNT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMNT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMNT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMNT.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="ModelMNT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMNT.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelMNT.edmx.diagram">
+      <DependentUpon>ModelMNT.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelMNT.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMNT.edmx</DependentUpon>
+      <LastGenOutput>ModelMNT.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelMNT.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMNT.edmx</DependentUpon>
+      <LastGenOutput>ModelMNT.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_KKFU>
+@using GridMvc.Html
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kinnickinnic Ave Daily Fueling</h2>
+@using (Html.BeginForm("MNTUpdateDailyFuel", "Fuel", new { Station = "KK" }, FormMethod.Post))
+{
+
+    <div>
+        <table class="table-bordered">
+            <tr>
+                <td style="background-color:gold">
+                    <b>
+                        @Html.ActionLink("Create New", "AddKKFU", "Fuel")
+                    </b>&nbsp;->&nbsp;
+                    <b>
+                        <input type="submit" value="Batch Update Daily Fuel" class="btn btn-default" />
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="table-bordered" border="1">
+                        <tr>
+                            <td>
+                                @Html.Grid(Model).Columns(columns =>
+                           {
+                           columns.Add()
+                                                               .Encoded(false)
+                                                               .Sanitized(false)
+                                                               .SetWidth(30)
+                                                               .RenderValueAs(d =>
+                                                                                @<b>
+                                                                                    @Html.ActionLink("Edit", "EditKKFU", "Fuel", new { KKDate = d.KKFU_DATE.ToString(), KKVehicle = d.VEHICLE, KKHour = d.FUEL_HOUR, KKMinute = d.FUEL_MINUTE, KKSec = d.FUEL_SECOND }, null)
+                                                                                </b>);
+         columns.Add(c => c.KKFU_DATE).Titled("KKFU FUEL DATE").Filterable(true);
+         columns.Add(c => c.VEHICLE).Titled("VEHICLE").Filterable(true);
+         columns.Add(c => c.FUEL_HOUR).Titled("FUEL HOUR").Filterable(true);
+         columns.Add(c => c.FUEL_MINUTE).Titled("FUEL MINUTE").Filterable(true);
+         columns.Add(c => c.FUEL_SECOND).Titled("FUEL SECOND").Filterable(true);
+         columns.Add(c => c.MILEAGE).Titled("MILEAGE");
+         columns.Add(c => c.PREVIOUS_MILEAGE).Titled("PREVIOUS MILEAGE");
+         columns.Add(c => c.FUEL).Titled("FUEL");
+         columns.Add(c => c.OIL).Titled("OIL");
+         columns.Add(c => c.COOLANT).Titled("COOLANT");
+         columns.Add(c => c.TRANS_FLUID).Titled("TRANSMISSION FLUID");
+         columns.Add(c => c.BAD_MILEAGE_IND).Titled("BAD MILEAGE INDICATOR");
+         columns.Add(c => c.BADGE).Titled("BADGE");
+         columns.Add(c => c.LIFE_MILES).Titled("LIFE MILES");
+         columns.Add(c => c.FUEL_TYPE).Titled("FUEL TYPE");
+         columns.Add(c => c.CHANGED).Titled("CHANGED");
+     }).WithPaging(50).Sortable(true).EmptyText("No Data Found").WithMultipleFilters()
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+}

@@ -1,0 +1,328 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_PMSC>
+
+@{
+    ViewBag.Title = "MNTPMSCHEDULE";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Preventative Maintenance Schedule</h2>
+<div>
+<table class="table-bordered">
+    <tr>
+        <td style="background-color:gold">
+            <p>
+                @Html.ActionLink("Create New", "AddPMSCHEDULE")
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_3)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_4)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_4)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_4)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_5)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_5)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_5)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_6)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_6)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_6)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_7)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_7)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_7)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_8)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_8)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_8)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_9)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_9)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_9)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_10)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_10)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_10)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_11)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_11)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_11)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_12)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_12)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_12)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_13)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_13)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_13)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_14)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_14)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_14)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_15)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_15)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_15)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_INITIALS_16)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_DESCRIP_16)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PM_MILE_INC_16)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_5)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_5)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_5)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_6)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_6)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_6)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_7)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_7)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_7)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_8)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_8)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_8)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_9)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_9)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_9)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_10)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_10)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_10)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_11)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_11)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_11)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_12)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_12)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_12)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_13)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_13)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_13)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_14)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_14)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_14)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_15)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_15)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_15)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_INITIALS_16)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_DESCRIP_16)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PM_MILE_INC_16)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditPMSCHEDULE", new { id = item.CODE_TYPE }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.CODE_TYPE }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CODE_TYPE })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </td>
+    </tr>
+    </table>
+</div>

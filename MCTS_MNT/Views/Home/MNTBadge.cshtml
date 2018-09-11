@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_TBAD>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "MNTBadge";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MNTBadge</h2>
+<div>
+    <table class="table-bordered">
+        <tr>
+            <td style="background-color:gold">
+                <b>
+                    @Html.ActionLink("Create New", "AddBadge", "Home")
+                </b>&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="table-bordered" border="1">
+                    <tr>
+                        <td>
+
+                            @Html.Grid(Model).Columns(columns =>
+                       {
+                       columns.Add()
+                                                           .Encoded(false)
+                                                           .Sanitized(false)
+                                                           .SetWidth(30)
+                                                           .RenderValueAs(d =>
+                                                                                                                @<b>
+                                                                                                                    @Html.ActionLink("Delete", "DeleteBadge", "Home", new { id=d.BADGE}, null)
+                                                                                                                </b>);
+                columns.Add(c => c.BADGE).Titled("BADGE").Filterable(true);
+            }).WithPaging(30).Sortable(true).EmptyText("No Data Found")
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

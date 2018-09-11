@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_WHPE>
+@using GridMvc.Html
+@using GridMvc.Filtering
+@{
+    ViewBag.Title = "MNTVehicleHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vehicle History</h2>
+@*@using (Html.BeginForm("SearchVehicleHistory", "Home"))
+{*@
+<div>
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <table class="table-bordered" border="1">
+        <tr>
+            <td>
+            @Html.Grid(Model).Columns(columns =>
+           {
+           columns.Add()
+                                               .Encoded(false)
+                                               .Sanitized(false)
+                                               .SetWidth(30)
+                                               .RenderValueAs(d =>
+                                                                                        @<b>
+                                                                                            @*@Html.ActionLink("Edit", "EditHistoty", "Home", new { WhpeRequest= "VH", WhpeLoc = d.LOCATION, WhpeVehNo = d.VEHICLE_NUMBER, WhpeIssueDate = d.ISSUE_DATE.ToString(), WhpeWorkCode = d.WORK_CODE, WhpeCompCode = d.COMPLETION_CODE, WhpeCompCodeA = d.COMPLETION_CODE_A, WhpeWorkOrdNo = d.WORK_ORDER_NUMBER }, null)*@
+                                                                                            @Html.Hidden(d.VEHICLE_NUMBER.ToString())
+                                                                                        </b>);
+columns.Add(c => c.COMPLETE_IND).Titled("COMPLETE INDICATOR");
+columns.Add(c => c.LOCATION).Titled("LOCATION").Filterable(true);
+columns.Add(c => c.VEHICLE_NUMBER).Titled("VEHICLE NUMBER").Filterable(true);
+columns.Add(c => c.ISSUE_DATE).Titled("ISSUE DATE").Filterable(true);
+columns.Add(c => c.WORK_CODE).Titled("WORK CODE").Filterable(true);
+columns.Add(c => c.COMPLETION_CODE).Titled("COMPLETION CODE");
+columns.Add(c => c.COMPLETION_CODE_A).Titled("COMPLETION CODE_A");
+columns.Add(c => c.WORK_ORDER_NUMBER).Titled("WORK ORDER NUMBER");
+columns.Add(c => c.START_DATE).Titled("START DATE");
+columns.Add(c => c.COMPLETE_DATE).Titled("COMPLETE DATE");
+columns.Add(c => c.CAUSE).Titled("CAUSE");
+columns.Add(c => c.CODE_DESCRIPTION).Titled("CODE DESCRIPTION");
+columns.Add(c => c.DESCRIPTION).Titled("DESCRIPTION");
+columns.Add(c => c.COMMENTS_A).Titled("COMMENTS_A");
+columns.Add(c => c.COMMENTS_B).Titled("COMMENTS_B");
+columns.Add(c => c.HOURS).Titled("HOURS");
+columns.Add(c => c.COST).Titled("COST");
+columns.Add(c => c.MECHANIC_1_BADGE).Titled("MECHANIC_1_BADGE");
+columns.Add(c => c.MECHANIC_2_BADGE).Titled("MECHANIC_2_BADGE");
+columns.Add(c => c.MECHANIC_3_BADGE).Titled("MECHANIC_3_BADGE");
+columns.Add(c => c.ASSIGNED_BY_NUMBER_WH).Titled("ASSIGNED_BY_NUMBER_WH");
+columns.Add(c => c.APPROVED_BY_NUMBER_WH).Titled("APPROVED_BY_NUMBER_WH");
+columns.Add(c => c.ASSIGNED_BY_REST_WH).Titled("ASSIGNED_BY_REST_WH");
+columns.Add(c => c.INSPECTION_NUMBER).Titled("INSPECTION_NUMBER");
+columns.Add(c => c.MILEAGE_DUE_INSP).Titled("MILEAGE_DUE_INSP");
+columns.Add(c => c.MILEAGE).Titled("MILEAGE");
+}).WithPaging(1000).Sortable(true).EmptyText("No Data Found").WithMultipleFilters()
+            </td>
+        </tr>
+    </table>
+    @*</td>
+            </tr>
+        </table>*@
+</div>
+@*}*@

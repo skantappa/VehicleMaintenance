@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - MCTS PORTAL Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/gridmvc.min.js"></script>
+</head>
+<body>
+    <div class="glyphicon-align-left">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:darkgreen">
+            <div class="container">
+                <div class="navbar-header">
+                    <img src="~/Content/mcts_logo.jpg" />
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("MCTS Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Fleet
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Manage Fleet", "Fleet", "Home")</li>                                   
+                                    <li>@Html.ActionLink("Maintenance Revenue", "MNTREVE", "Home")</li>
+                                    <li>@Html.ActionLink("Vehicle History", "MNTVehicleHistory", "Home")</li>
+                                    <li>@Html.ActionLink("Brakes", "MNTBrakes", "Home")</li>
+                                    <li>@Html.ActionLink("Tire Retorques", "MNTTireRetorque", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Daily Fuel
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("FOND DU LAC AVE GARAGE", "FDFU", "Fuel")</li>
+                                    <li>@Html.ActionLink("KINNICKINNIC AVE GARAGE", "KKFU", "Fuel")</li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="btndropdownmenu2">
+                                    Work
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Employee Time Keeping", "MNTTKPayroll", "Home")</li>
+                                    <li>@Html.ActionLink("Inspection", "MNTINSPECTION", "Fuel")</li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Standards
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Employee Standards", "MNTStandards", "Home")</li>
+                                    <li>@Html.ActionLink("Discipline", "MNTDiscipline", "Home")</li>
+                                    <li>@Html.ActionLink("Grievances - Labor Relations", "MNTGrievances", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Inventory
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Unit Exchange", "MNTUnitExchange", "Home")</li>
+                                    <li>@Html.ActionLink("Inventory", "MNTInventory", "Home")</li>
+                                </ul>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Road Calls
+                                    <span class="caret"></span>
+                                </button>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Road Calls", "MNTRoadCalls", "Home")</li>
+                                    <li>@Html.ActionLink("PullIns", "MNTInventory", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="btndropdownmenu2">
+                                    Reports
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Weekly Payroll Register", "MNTWKPayrollRegister", "Home")</li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="btndropdownmenu2">
+                                    Safety
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("OSHA", "MNTOSHA", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="btndropdownmenu2">
+                                    Administrator
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Tank Badge", "MNTBadge", "Home")</li>
+                                    <li>@Html.ActionLink("Preventive Maintenance Schedule", "MNTPMSCHEDULE", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    @Html.Partial("_LoginPartial")
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - MCTS Portal Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

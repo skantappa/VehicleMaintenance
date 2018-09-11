@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MCTS_MNT.EntityDataModel.MNT_RTRQ>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "MNTTireRetorque";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tire Retorque</h2>
+<div>
+    <table class="table-bordered">
+        <tr>
+            <td style="background-color:gold">
+                <b>
+                    @Html.ActionLink("Create New", "AddTireRETRQ", "Home")
+                </b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="table-bordered" border="1">
+                    <tr>
+                        <td>
+                            @Html.Grid(Model).Columns(columns =>
+                        {
+                        columns.Add()
+                                     .Encoded(false)
+                                     .Sanitized(false)
+                                     .SetWidth(30)
+                                     .RenderValueAs(d =>
+                                                                    @<b>
+                                                                        @Html.ActionLink("Edit", "EditRTRQ", "Home", new {RTRQDate = d.DATE_96.ToString(), RTRQBUSNo = d.BUS_NUMBER, RTRQWheelPos = d.WHEEL_POSITION.TrimEnd(' '), RTRQStatus = d.STATUS}, null)
+                                                                    </b>);
+                            columns.Add(c => c.BUS_NUMBER).Titled("BUS NUMBER").Filterable(true);
+                            columns.Add(c => c.WHEEL_POSITION).Titled("WHEEL POSITION").Filterable(true);
+                            columns.Add(c => c.DATE_96).Titled("Date_96").Filterable(true);
+                            columns.Add(c => c.MILEAGE_CURRENT).Titled("CURRENT MILEAGE");
+                            columns.Add(c => c.MILEAGE_LIFE).Titled("MILEAGE LIFE");
+                            columns.Add(c => c.MILEAGE_DUE).Titled("MILEAGE DUE");
+                            columns.Add(c => c.MILEAGE_LIFE_DUE).Titled("MILEAGE LIFE DUE");
+                            columns.Add(c => c.ORIG_MECH_BADGE).Titled("ORIGINAL MECHANIC BADGE");
+                            columns.Add(c => c.ORIG_MECH_NAME).Titled("ORIGINAL MECHANIC NAME");
+                            columns.Add(c => c.ORIG_ENTRY_DATE).Titled("ORIGINAL ENTRY DATE");
+                            columns.Add(c => c.ORIG_ENTRY_USERID).Titled("ORIGINAL ENTRY USERID");
+                            columns.Add(c => c.RETRQ_DATE).Titled("RETORQUE DATE");
+                            columns.Add(c => c.RETRQ_HUB_MILEAGE).Titled("RETRQ HUB MILEAGE");
+                            columns.Add(c => c.RETRQ_LIFE_MILEAGE).Titled("RETRQ LIFE MILEAGE");
+                            columns.Add(c => c.RETRQ_MECH_BADGE).Titled("RETORQUE MECHANIC BADGE");
+                            columns.Add(c => c.RETRQ_MECH_NAME).Titled("RETORQUE MECHANIC NAME");
+                            columns.Add(c => c.RETRQ_ENTRY_DATE).Titled("RETORQUE ENTRY DATE");
+                            columns.Add(c => c.RETRQ_ENTRY_USERID).Titled("RETORQUE ENTRY USERID");
+                            columns.Add(c => c.RETRQ_REQUIRED).Titled("RETORQUE REQUIRED");
+                            columns.Add(c => c.STATUS).Titled("STATUS").Filterable(true); 
+                        }).WithPaging(50).Sortable(true).EmptyText("No Data Found").WithMultipleFilters()
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
