@@ -546,11 +546,11 @@
     <Content Include="Views\Home\EditRTRQ.cshtml" />
     <Content Include="Views\Home\MNTVehicleHistory.cshtml" />
     <Content Include="Views\Home\EditHistoty.cshtml" />
-    <Content Include="Views\Home\EditReve.cshtml" />
     <Content Include="Views\Home\MNTREVE.cshtml" />
     <Content Include="Views\Home\MNTBrakes.cshtml" />
     <Content Include="Views\Home\AddBrakes.cshtml" />
     <Content Include="Views\Home\EditBrakes.cshtml" />
+    <Content Include="Views\Home\EditReve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

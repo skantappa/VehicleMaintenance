@@ -386,7 +386,7 @@ namespace MCTS_MNT.Controllers
             string username = HttpContext.GetOwinContext().Authentication.User.Identity.Name;
             ViewBag.UsrId = username;
             ViewBag.Message = "Your application description page.";
-            return View();
+            return View(objMNTEntity.MNT_REVE.ToList());
         }
 
         //public ActionResult AddReve()
@@ -415,7 +415,7 @@ namespace MCTS_MNT.Controllers
         //    else return RedirectToAction("Fleet", "Home");
         //}
 
-
+        [Route("{strYear}/{strBUSNo}")]
         public ActionResult EditReve(short strYear, short strBUSNo)
         {
             string username = HttpContext.GetOwinContext().Authentication.User.Identity.Name;

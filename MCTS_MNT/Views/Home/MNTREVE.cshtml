@@ -10,7 +10,78 @@
                     <table class="table-bordered" border="1">
                         <tr>
                             <td>
-                                UNDER CONSTRUCTION!!!
+                                @Html.Grid(Model).Columns(columns =>
+                                     {
+                                        columns.Add()
+                                             .Encoded(false)
+                                             .Sanitized(false)
+                                             .SetWidth(30)
+                                             .RenderValueAs(d =>
+                                @<b>
+                                    @Html.ActionLink("Edit", "EditReve", "Home", new {RevYear = d.YR, RevVehNo = d.VEHICLE_NUMBER}, null)
+                                    @*@Html.ActionLink("Delete", "DeleteReve", "Home", new { RevYear = d.YR, RevVehNo = d.VEHICLE_NUMBER}, null)*@
+                                </b>);
+                                         columns.Add(c => c.YR).Titled("FUEL YEAR").Filterable(true);
+                                         columns.Add(c => c.VEHICLE_NUMBER).Titled("BUS NUMBER").Filterable(true);
+                                         columns.Add(c => c.STATION).Titled("STATION").Filterable(true);
+                                         columns.Add(c => c.FREEWAY_FLYER).Titled("FREEWAY FLYER");
+                                         columns.Add(c => c.PREVIOUS_MILEAGE).Titled("HUB CHANGE MILEAGE").Filterable(true);
+                                         columns.Add(c => c.PRESENT_MILEAGE).Titled("PRESENT HUB READING").Filterable(true);
+                                         columns.Add(c => c.ANNUAL_MILEAGE).Titled("PRE-ANNUAL MILEAGE");
+                                         columns.Add(c => c.INSP_2500).Titled("BRAKE INSPECTIONS");
+                                         columns.Add(c => c.INSP_5000).Titled("MINOR INSPECTIONS");
+                                         columns.Add(c => c.INSP_CLEAN_DATE).Titled("INSPECTION CLEAN DATE");
+                                        // columns.Add(c => c.PRESENT_MILEAGE).Titled("LIFE MILES");
+                                         //columns.Add(c => c.PRESENT_MILEAGE-c.ANNUAL_MILEAGE).Titled("YTD MILES");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_1).Titled("JANUARY MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_2).Titled("FEBRUARY MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_3).Titled("MARCH MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_4).Titled("APRIL MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_5).Titled("MAY MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_6).Titled("JUNE MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_7).Titled("JULY MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_8).Titled("AUGUST MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_9).Titled("SEPTEMBER MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_10).Titled("OCTOBER MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_11).Titled("NOVEMBER MILEAGE");
+                                         columns.Add(c => c.MONTHLY_MILEAGE_12).Titled("DECEMBER MILEAGE");
+                                         columns.Add(c => c.MONTHLY_FUEL_1).Titled("JANUARY FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_2).Titled("FEBRUARY FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_3).Titled("MARCH FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_4).Titled("APRIL FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_5).Titled("MAY FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_6).Titled("JUNE FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_7).Titled("JULY FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_8).Titled("AUGUST FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_9).Titled("SEPTEMBER FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_10).Titled("OCTOBER FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_11).Titled("NOVEMBER FUEL");
+                                         columns.Add(c => c.MONTHLY_FUEL_12).Titled("DECEMBER FUEL");
+                                         columns.Add(c => c.MONTHLY_OIL_1).Titled("JANUARY OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_2).Titled("FEBRUARY OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_3).Titled("MARCH OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_4).Titled("APRIL OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_5).Titled("MAY OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_6).Titled("JUNE OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_7).Titled("JULY OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_8).Titled("AUGUST OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_9).Titled("SEPTEMBER OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_10).Titled("OCTOBER OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_11).Titled("NOVEMBER OIL");
+                                         columns.Add(c => c.MONTHLY_OIL_12).Titled("DECEMBER OIL");
+                                         columns.Add(c => c.MONTHLY_COOLANT_1).Titled("JANUARY COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_2).Titled("FEBRUARY COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_3).Titled("MARCH COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_4).Titled("APRIL COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_5).Titled("MAY COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_6).Titled("JUNE COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_7).Titled("JULY COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_8).Titled("AUGUST COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_9).Titled("SEPTEMBER COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_10).Titled("OCTOBER COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_11).Titled("NOVEMBER COOLANT");
+                                         columns.Add(c => c.MONTHLY_COOLANT_12).Titled("DECEMBER COOLANT");
+                                     }).WithPaging(50).Sortable(true).EmptyText("No Data Found").WithMultipleFilters()
                             </td>
                         </tr>
                     </table>             
