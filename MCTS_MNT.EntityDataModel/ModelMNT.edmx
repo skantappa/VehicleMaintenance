@@ -1090,8 +1090,8 @@
         <EntityType Name="MNT_BAKE">
           <Key>
             <PropertyRef Name="BUS_NUMBER" />
-            <PropertyRef Name="DATE_BRAKE_OFF" />
             <PropertyRef Name="AXLE_POSITION" />
+            <PropertyRef Name="DATE_BRAKE_OFF" />
           </Key>
           <Property Name="BUS_NUMBER" Type="Int16" Nullable="false" />
           <Property Name="DATE_BRAKE_OFF" Type="DateTime" Nullable="false" />

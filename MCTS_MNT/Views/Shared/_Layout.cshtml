@@ -13,11 +13,13 @@
 </head>
 <body>
     <div class="glyphicon-align-left">
-        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:darkgreen">
-            <div class="container">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:darkgreen">            
+            <div class="container">                
+                <br /> 
                 <div class="navbar-header">
-                    <img src="~/Content/mcts_logo.jpg" />
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -37,7 +39,7 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("Manage Fleet", "Fleet", "Home")</li>                                   
+                                    <li>@Html.ActionLink("Manage Fleet", "Fleet", "Home")</li>
                                     <li>@Html.ActionLink("Maintenance Revenue", "MNTREVE", "Home")</li>
                                     <li>@Html.ActionLink("Vehicle History", "MNTVehicleHistory", "Home")</li>
                                     <li>@Html.ActionLink("Brakes", "MNTBrakes", "Home")</li>
@@ -149,7 +151,6 @@
                             </div>
                         </li>
                     </ul>
-
                     @Html.Partial("_LoginPartial")
 
                 </div>

@@ -29,8 +29,9 @@
                                              .SetWidth(30)
                                              .RenderValueAs(d =>
                                                                             @<b>
-                                                                                @Html.ActionLink("Edit", "EditBrakes", "Home", new { bkBusNo = d.BUS_NUMBER, bkDateBrkOff = d.DATE_BRAKE_OFF.ToString(), bkAxlePos = d.AXLE_POSITION }, null)
-                                                                            </b>);
+    @Html.ActionLink("Edit", "EditBrakes", "Home", new { bkDateBrkOff = d.DATE_BRAKE_OFF.ToString(), bkBusNo = d.BUS_NUMBER, bkAxlePos = d.AXLE_POSITION }, null)
+    @Html.ActionLink("Delete", "DeleteBrake", "Home", new { bkDateBrkOff = d.DATE_BRAKE_OFF.ToString(), bkBusNo = d.BUS_NUMBER, bkAxlePos = d.AXLE_POSITION }, null)
+</b>);
                                       columns.Add(c => c.BUS_NUMBER).Titled("BUS NUMBER").Filterable(true);
                                       columns.Add(c => c.DATE_BRAKE_OFF).Titled("DATE BRAKE OFF");
                                       columns.Add(c => c.AXLE_POSITION).Titled("AXLE POSITION").Filterable(true);

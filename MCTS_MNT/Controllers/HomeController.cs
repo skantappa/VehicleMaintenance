@@ -221,6 +221,15 @@ namespace MCTS_MNT.Controllers
             //ViewBag.VehList = new SelectList(VehList);
             return View(objMNTEntity.MNT_WHPE.ToList());
         }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult UpdateHistory(MNT_WHPE objVehHistory)
+        {
+            objMNTEntity.Entry<MNT_WHPE>(objVehHistory).State = System.Data.Entity.EntityState.Modified;
+            objMNTEntity.SaveChanges();
+            return RedirectToAction("MNTVehicleHistory", "Home");
+        }
+
         public ActionResult MNTBrakes()
         {
             string username = HttpContext.GetOwinContext().Authentication.User.Identity.Name;
@@ -245,14 +254,27 @@ namespace MCTS_MNT.Controllers
                 //Error at : 
                 DateTime dtNullDate = Convert.ToDateTime("1/1/1901");
                 MNT_BAKE lstBake = objMNTEntity.MNT_BAKE.Where(c => c.BUS_NUMBER == objaddBrakes.BUS_NUMBER && c.DATE_BRAKE_OFF == dtNullDate && c.AXLE_POSITION == objaddBrakes.AXLE_POSITION).SingleOrDefault();
+                MNT_BAKE lstNewBake = new MNT_BAKE();// objMNTEntity.MNT_BAKE.Where(c => c.BUS_NUMBER == objaddBrakes.BUS_NUMBER && c.DATE_BRAKE_OFF == dtNullDate && c.AXLE_POSITION == objaddBrakes.AXLE_POSITION).SingleOrDefault();
                 if (lstRevVehicle.Count() > 0)
                 {
-                    if (lstBake.BUS_NUMBER>0)
+                    if (lstBake!=null  && lstBake.BUS_NUMBER>0)
                     {
                         try
                         {
-                          
-                            lstBake.DATE_BRAKE_OFF =  objaddBrakes.DATE_BRAKE_ON is null ? Convert.ToDateTime("1/1/1901"): (DateTime) objaddBrakes.DATE_BRAKE_ON;
+                            lstNewBake.BUS_NUMBER = lstBake.BUS_NUMBER;
+                            lstNewBake.AXLE_POSITION = lstBake.AXLE_POSITION;
+                            lstNewBake.DATE_BRAKE_OFF =  objaddBrakes.DATE_BRAKE_ON is null || objaddBrakes.DATE_BRAKE_ON.ToString().Contains("01/01/0001") ? Convert.ToDateTime("1/1/1901"): (DateTime) objaddBrakes.DATE_BRAKE_ON;
+                            lstNewBake.MILEAGE_BRAKE_OFF = objaddBrakes.MILEAGE_BRAKE_ON;
+                            lstNewBake.DATE_BRAKE_ON = lstBake.DATE_BRAKE_ON;
+                            lstNewBake.MILEAGE_BRAKE_ON = lstBake.MILEAGE_BRAKE_ON;
+                            lstNewBake.GARAGE = lstBake.GARAGE;
+                            lstNewBake.BAKE_SIZE = lstBake.BAKE_SIZE;
+                            lstNewBake.BADGE_NUMBER_1 = lstBake.BADGE_NUMBER_1;
+                            lstNewBake.BADGE_NUMBER_2 = lstBake.BADGE_NUMBER_2;
+                            objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(lstNewBake).State = System.Data.Entity.EntityState.Added;
+                            objMNTEntity.SaveChanges();
+
+                            objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(lstBake).State = System.Data.Entity.EntityState.Deleted;
                             objMNTEntity.SaveChanges();
                         }
                         catch (Exception ex)
@@ -260,12 +282,13 @@ namespace MCTS_MNT.Controllers
                             blnAddedBrakes = false;
                           //  return RedirectToAction("MNTBrakes", "Home");
                         }
-                        if (blnAddedBrakes == true)
-                        {
-                            objaddBrakes.DATE_BRAKE_OFF =  string.IsNullOrEmpty(objaddBrakes.DATE_BRAKE_OFF.ToString()) ? Convert.ToDateTime("1/1/1901") : objaddBrakes.DATE_BRAKE_OFF;
-                            objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(objaddBrakes).State = System.Data.Entity.EntityState.Added;
-                            objMNTEntity.SaveChanges();
-                        }
+                       
+                    }
+                    if (blnAddedBrakes == true)
+                    {
+                        objaddBrakes.DATE_BRAKE_OFF = string.IsNullOrEmpty(objaddBrakes.DATE_BRAKE_OFF.ToString()) || objaddBrakes.DATE_BRAKE_OFF.ToString().Contains("1/1/0001") ? Convert.ToDateTime("1/1/1901") : objaddBrakes.DATE_BRAKE_OFF;
+                        objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(objaddBrakes).State = System.Data.Entity.EntityState.Added;
+                        objMNTEntity.SaveChanges();
                     }
                 }
                 else
@@ -285,19 +308,33 @@ namespace MCTS_MNT.Controllers
         }
 
 
-        //[Route("")]
-        //public ActionResult EditBrakes(string WhpeRequest, string WhpeLoc, int WhpeVehNo, string WhpeIssueDate, int WhpeWorkCode, string WhpeCompCode, string WhpeCompCodeA, Int16 WhpeWorkOrdNo)
-        //{
-        //    DateTime dtIssueDate = Convert.ToDateTime(WhpeIssueDate);
-        //    return View(objMNTEntity.MNT_WHPE.Where(c => c.LOCATION == WhpeLoc && c.VEHICLE_NUMBER == WhpeVehNo && c.ISSUE_DATE == dtIssueDate && c.WORK_CODE == WhpeWorkCode && c.COMPLETION_CODE == WhpeCompCode && c.COMPLETION_CODE_A == WhpeCompCodeA && c.WORK_ORDER_NUMBER == WhpeWorkOrdNo).SingleOrDefault());
-        //}
+        [Route("Home/EditBrakes/{bkBusNo}/{bkAxlePos}")]
+        public ActionResult EditBrakes(string bkDateBrkOff, short bkBusNo,  string bkAxlePos)
+        {
+            DateTime dtBrakeOffDate = Convert.ToDateTime(bkDateBrkOff);
+            return View(objMNTEntity.MNT_BAKE.Where(c => c.AXLE_POSITION == bkAxlePos && c.BUS_NUMBER == bkBusNo && c.DATE_BRAKE_OFF == dtBrakeOffDate ).SingleOrDefault());
+        }
+
+
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult UpdateHistory(MNT_WHPE objVehHistory)
+        public ActionResult UpdateBrakes(MCTS_MNT.EntityDataModel.MNT_BAKE objBrake)
         {
-            objMNTEntity.Entry<MNT_WHPE>(objVehHistory).State = System.Data.Entity.EntityState.Modified;
+            objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(objBrake).State = System.Data.Entity.EntityState.Modified;
             objMNTEntity.SaveChanges();
-            return RedirectToAction("MNTVehicleHistory", "Home");
+            return RedirectToAction("MNTBrakes", "Home");
+        }
+
+        public ActionResult DeleteBrake(string bkDateBrkOff, short bkBusNo, string bkAxlePos)
+        {
+            //string username = HttpContext.GetOwinContext().Authentication.User.Identity.Name;
+            //ViewBag.UsrId = username;
+            DateTime dtBrakeOffDate = Convert.ToDateTime(bkDateBrkOff);
+            MCTS_MNT.EntityDataModel.MNT_BAKE objDelBake = new MNT_BAKE();
+            objDelBake = objMNTEntity.MNT_BAKE.Where(c => c.AXLE_POSITION == bkAxlePos && c.BUS_NUMBER == bkBusNo && c.DATE_BRAKE_OFF == dtBrakeOffDate).SingleOrDefault();
+            objMNTEntity.Entry<MCTS_MNT.EntityDataModel.MNT_BAKE>(objDelBake).State = System.Data.Entity.EntityState.Deleted;
+            objMNTEntity.SaveChanges();
+            return RedirectToAction("MNTBrakes", "Home");
         }
 
         //public ActionResult EditBadge(string id)
